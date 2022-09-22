@@ -10,7 +10,7 @@ def main():
     result = return_result(score)
     print(result)
     i = random.randint(0, 100)
-    print(f"Random number {i}, Result {return_result(i)}")
+    print(f"Random number: {i}, Result: {return_result(i)}")
 
 
 def return_result(score):
