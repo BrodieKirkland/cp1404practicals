@@ -1,4 +1,5 @@
 import random
+
 MENU = "(G)et score\n(R)esult\n(P)rint stars\n(Q)uit"
 
 
