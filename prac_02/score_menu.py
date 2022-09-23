@@ -5,7 +5,7 @@ MENU = "(G)et score\n(R)esult\n(P)rint stars\n(Q)uit"
 def main():
     score = 0
     print(MENU)
-    menu_choice = input(">>>")
+    menu_choice = input(">>>").upper()
     while menu_choice != "Q":
         if menu_choice == "G":
             score = random.randint(0, 100)
@@ -13,6 +13,8 @@ def main():
             return_result(score)
         elif menu_choice == "P":
             print_stars(score)
+        print(MENU)
+        menu_choice = input(">>>").upper()
     print("Fin.")
 
 
