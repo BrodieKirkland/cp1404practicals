@@ -28,4 +28,5 @@ def make_random_numbers_file(number_of_numbers):
     out_file.close()
 
 
+# make_random_numbers_file(20)
 main()
