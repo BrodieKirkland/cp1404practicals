@@ -5,7 +5,8 @@
 # What did you see on line 2?
 # 3
 # What was the smallest number you could have seen, what was the largest?
-# smallest 3, largest 10
+# smallest 3, largest 9
+# No it is counting in 2's from an odd number
 # What did you see on line 3?
 # 4.291442831596987
 # What was the smallest number you could have seen, what was the largest?
