@@ -16,10 +16,10 @@ def main():
         denominator = get_valid_number("Enter the denominator: ")
         fraction = numerator / denominator
         print(fraction)
-    except ValueError:
+    except ValueError:  # Could add this check to get_valid_number function
         print("Numerator and denominator must be valid numbers!")
-    except ZeroDivisionError:
-        print("Cannot divide by zero!")
+    # except ZeroDivisionError:
+    #     print("Cannot divide by zero!")
     print("Finished.")
 
 
