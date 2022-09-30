@@ -24,11 +24,11 @@ def main():
 
 
 def get_valid_number(prompt):
-    choice = int(input(prompt))
-    while choice <= 0:
+    number = int(input(prompt))
+    while number <= 0:
         print("Invalid number")
-        choice = int(input(prompt))
-    return choice
+        number = int(input(prompt))
+    return number
 
 
 main()
