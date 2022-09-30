@@ -14,3 +14,10 @@ in_file.close()
 
 # 3.
 
+total = 0
+in_file = open("numbers.txt", "r")
+for i in range(2):
+    line = in_file.readline()
+    total += int(line)
+in_file.close()
+print(f"Total from numbers.txt: {total}")
