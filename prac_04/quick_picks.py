@@ -5,7 +5,6 @@ MINIMUM_NUMBER = 1
 MAX_NUMBER = 45
 
 number_of_rows = int(input("How many quick picks? "))
-quick_picks = []
 for i in range(number_of_rows):
     new_line = []
     for j in range(NUMBER_OF_COLUMNS):
