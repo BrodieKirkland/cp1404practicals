@@ -9,7 +9,6 @@ FILENAME = "subject_data.txt"
 def main():
     data = get_data()
     print(data)
-    print("----------")
     print_data_string(data)
 
 
