@@ -13,6 +13,8 @@ def main():
         print(f"{name} {count}")
     print()
     print(f"These {len(champion_countries)} countries have won Wimbledon:")
+    champion_countries = list(champion_countries)
+    champion_countries.sort()
     countries = ", ".join(champion_countries)
     print(countries)
 
