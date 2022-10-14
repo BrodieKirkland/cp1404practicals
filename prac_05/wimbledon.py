@@ -28,16 +28,16 @@ def display_results(champion_countries, name_to_count):
 def count_name_country(champions_data):
     """Count name and unique countries"""
     name_to_count = {}
-    countries = set()
+    champion_countries = set()
     for data in champions_data:
         name = data[2]
         country = data[1]
-        countries.add(country)
+        champion_countries.add(country)
         try:
             name_to_count[name] += 1
         except KeyError:
             name_to_count[name] = 1
-    return name_to_count, countries
+    return name_to_count, champion_countries
 
 
 def make_champion_list(filename):
