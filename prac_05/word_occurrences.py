@@ -5,7 +5,7 @@ actual: 8 minutes
 
 word_to_count = {}
 
-words = list(input("Text: ").split())
+words = input("Text: ").split()
 words.sort()
 for word in words:
     try:
