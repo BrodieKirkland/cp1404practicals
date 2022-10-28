@@ -1,7 +1,7 @@
 """
 Guitars!
 Time estimate: 60 minutes
-actual:
+actual: ~60 minutes
 
 Guitar class
 """
