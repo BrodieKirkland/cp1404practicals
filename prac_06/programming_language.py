@@ -8,5 +8,7 @@ class ProgrammingLanguage:
         self.reflection = reflection
         self.year = year
 
+    def is_dynamic(self):
+        return self.typing.lower() == "dynamic"
 
 
