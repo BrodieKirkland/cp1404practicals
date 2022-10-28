@@ -1,7 +1,7 @@
 """
 prac_06 - languages
 Time estimate = 15 minutes
-actual =
+actual = 25 minutes
 """
 
 from programming_language import ProgrammingLanguage
