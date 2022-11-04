@@ -11,4 +11,5 @@ class Project:
         self.completion_percentage = completion_percentage
 
     def __repr__(self):
-        pass
+        return f"{self.name}, start: {self.start_date}, priority {self.priority}, " \
+               f"estimate: ${self.cost_estimate:.2f}, completion: {self.completion_percentage}%"

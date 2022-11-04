@@ -3,24 +3,30 @@ Project Management Program
 Time estimate: 2 hours  1:46pm
 Actual time:
 """
+from project import Project
 
+
+INDEX_NAME = 0
+INDEX_START_DATE = 1
+INDEX_PRIORITY = 2
+INDEX_COST_ESTIMATE = 3
+INDEX_COMPLETION_PERCENTAGE = 4
 FILENAME = "projects.txt"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by day\n- (A)dd new project\
 \n- (U)pdate project\n- (Q)uit"
 
 
 def main():
-    projects = []
-    load_projects(FILENAME)
+    projects = load_projects(FILENAME)
     print(MENU)
     choice = input(">>>").upper()
     while choice != "Q":
         if choice == "L":
             filename = input("Filename: ")
-            load_projects(filename)
+            projects = load_projects(filename)
         elif choice == "S":
             filename = input("Filename: ")
-            save_projects(filename)
+            save_projects(projects, filename)
         elif choice == "D":
             display_projects(projects)
         elif choice == "F":
@@ -34,15 +40,34 @@ def main():
 
 
 def load_projects(filename):
-    pass
+    projects = []
+    with open(filename, "r") as in_file:
+        in_file.readline()
+        for line in in_file:
+            parts = line.strip().split("\t")
+            parts[INDEX_PRIORITY] = int(parts[INDEX_PRIORITY])
+            parts[INDEX_COST_ESTIMATE] = float(parts[INDEX_COST_ESTIMATE])
+            parts[INDEX_COMPLETION_PERCENTAGE] = int(parts[INDEX_COMPLETION_PERCENTAGE])
+            projects.append(Project(*parts))
+    return projects
 
 
-def save_projects(filename):
-    pass
+def save_projects(projects, filename):
+    with open(filename, "w") as out_file:
+        for project in projects:
+            project_string = "{}\t{}\t{}\t{}\t{}".format(*project)
+            print(project_string)
 
 
 def display_projects(projects):
-    pass
+    print("Incomplete projects:")
+    for project in projects:
+        if project.completion_percentage != 100:
+            print(project)
+    print("Complete projects:")
+    for project in projects:
+        if project.completion_percentage == 100:
+            print(project)
 
 
 def filter_projects(projects):
