@@ -39,6 +39,7 @@ def main():
             update_project(projects)
         print(MENU)
         choice = input(">>> ").upper()
+    print("Thankyou for using this almost working project management software!")
 
 
 def load_projects(filename):
