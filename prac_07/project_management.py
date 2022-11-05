@@ -1,9 +1,10 @@
 """
 Project Management Program
-Time estimate: 2 hours  1:46pm
-Actual time:
+Time estimate: 2 hours
+Actual time: 3 hours + 2 hours for confusing datetime stuff
 """
 from project import Project
+import datetime
 
 INDEX_NAME = 0
 INDEX_START_DATE = 1
@@ -17,6 +18,7 @@ HEADER = "Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage"
 
 
 def main():
+    """Load, manage, and save projects from filename"""
     projects = load_projects(FILENAME)
     print(MENU)
     choice = input(">>> ").upper()
@@ -40,6 +42,7 @@ def main():
 
 
 def load_projects(filename):
+    """Load projects from filename"""
     projects = []
     with open(filename, "r") as in_file:
         in_file.readline()
@@ -53,6 +56,7 @@ def load_projects(filename):
 
 
 def save_projects(projects, filename):
+    """Save projects to filename"""
     with open(filename, "w") as out_file:
         print(HEADER, file=out_file)
         for project in projects:
@@ -62,6 +66,7 @@ def save_projects(projects, filename):
 
 
 def display_projects(projects):
+    """Display projects neatly"""
     print("Incomplete projects:")
     for project in projects:
         if project.completion_percentage != 100:
@@ -73,10 +78,17 @@ def display_projects(projects):
 
 
 def filter_projects(projects):
-    pass
+    """Filter projects by start_date"""
+    date_string = input("Show projects that start after date (dd/mm/yyyy): ")
+    date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+    for project in projects:
+        project_date = datetime.datetime.strptime(project.start_date, "%d/%m/%Y").date()
+        if project_date > date:
+            print(project)
 
 
 def add_project(projects):
+    """Add new project"""
     name = input("Project name: ")
     start_date = input("Start date (dd/mm/yyyy): ")
     priority = int(input("Priority: "))
@@ -87,15 +99,17 @@ def add_project(projects):
 
 
 def update_project(projects):
+    """Update project priority and completion percentage"""
     for i, project in enumerate(projects):
         print(f"{i} {project}")
     choice = int(input("Project choice: "))
     print(projects[choice])
     new_percentage = int(input("New percentage: "))
+    if new_percentage != "":
+        projects[choice].completion_percentage = new_percentage
     new_priority = int(input("New priority: "))
-    projects[choice].completion_percentage = new_percentage
-    projects[choice].priority = new_priority
-
+    if new_priority != "":
+        projects[choice].priority = new_priority
 
 
 if __name__ == '__main__':

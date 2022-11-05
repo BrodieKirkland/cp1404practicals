@@ -1,4 +1,5 @@
 """Project Class"""
+import datetime
 
 
 class Project:
@@ -13,3 +14,11 @@ class Project:
     def __repr__(self):
         return f"{self.name}, start: {self.start_date}, priority {self.priority}, " \
                f"estimate: ${self.cost_estimate:.2f}, completion: {self.completion_percentage}%"
+
+    def __lt__(self, other):
+        """Meant to compare start_date's"""
+        date_string = self.start_date
+        date = datetime.datetime.strptime(date_string, "%d/%m/%Y").date()
+        other_date_string = other.start_date
+        other_date = datetime.datetime.strptime(other_date_string, "%d/%m/%Y").date()
+        return date < other_date
