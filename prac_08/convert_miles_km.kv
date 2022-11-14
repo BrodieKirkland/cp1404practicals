@@ -1,0 +1,23 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput:
+            id: input_miles
+            size_hint_x: .8
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: .2
+            Button:
+                text: 'Up'
+                on_press: app.handle_increment(1)
+            Button:
+                text: 'Down'
+                on_press: app.handle_increment(-1)
+    Button:
+        text: 'Convert m to km'
+        on_press: app.handle_convert_miles_to_km()
+    Label:
+        id: output_label
+        text: 'Kilometres output'
+        color: (1, 1, 0, 1)
