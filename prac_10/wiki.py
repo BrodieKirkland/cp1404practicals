@@ -6,12 +6,12 @@ while search_phrase != "":
     try:
         page = wikipedia.page(search_phrase, auto_suggest=False)
         title = page.title
-        summary = wikipedia.summary(search_phrase)
+        summary = page.summary
         url = page.url
-        print(f"Page tile: {title}\n")
+        print(f"Page tile: {title}")
         print("Summary:")
         print(summary)
-        print(f"URL: {url}\n")
+        print(f"URL: {url}")
     except wikipedia.exceptions.PageError:
         print("Invalid page, please try again.")
     except wikipedia.exceptions.DisambiguationError:
